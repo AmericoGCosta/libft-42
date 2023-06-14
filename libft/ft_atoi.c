@@ -9,5 +9,29 @@
 /*   Updated: 2023/04/18 16:04:03 by amgoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
+int	ft_atoi(const char *nptr)
+{
+	int	i;
+	int	s;
+	int	r;
 
+	i = 0;
+	s = 1;
+	r = 0;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
+		i++;
+	if (nptr[i] == 43 || nptr[i] == 45)
+	{
+		if (nptr[i] == 45)
+			s = -1;
+		i++;
+	}
+	while (nptr[i] >= 48 && nptr[i] <= 57)
+	{
+		r = (r * 10) + (nptr[i] - '0');
+		i++;
+	}
+	return (r * s);
+}

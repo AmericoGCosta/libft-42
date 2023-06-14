@@ -13,12 +13,19 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t	i;
+	char			*cpdest;
+	const char		*cpsrc;
+	size_t			i;
 
-	if ((size_t)dest < (size_t)src)
-		memmove(*dest, *src, n);
-	else while (i < n)
+	i = 0;
+	if (!src && !dest)
+		return (NULL);
+	cpdest = (char *)dest;
+	cpsrc = (char *)src;
+	while (i < n)
 	{
-		
+		p_dest[i] = p_src[i];
+		i++;
 	}
+	return (dest);
 }
