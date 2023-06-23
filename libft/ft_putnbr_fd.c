@@ -14,8 +14,6 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (fd < 0)
-		return ;
 	if (n < 0)
 	{
 		write(fd, "-", 1);

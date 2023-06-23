@@ -9,6 +9,7 @@
 /*   Updated: 2023/06/19 17:50:10 by amgoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 static int	digits_n(int n)
@@ -30,23 +31,25 @@ char	*ft_itoa(int n)
 {
 	char	*str;
 	size_t	size;
+	int		sig;
 
+	sig = 1;
 	size = digits_n(n);
-	str = malloc(sizeof(int) * (size + 1));
+	str = malloc(sizeof(char) * (size + 1));
 	if (!str)
 		return (NULL);
 	str[size] = '\0';
 	if (n < 0)
 	{
 		str[0] = '-';
-		n = -n;
+		sig = -1;
 	}
 	if (n == 0)
 		str[0] = '0';
-	while (n > 0)
+	while (n != 0)
 	{
 		size--;
-		str[size] = (n % 10) + '0';
+		str[size] = ((n % 10) * sig) + '0';
 		n = n / 10;
 	}
 	return (str);
